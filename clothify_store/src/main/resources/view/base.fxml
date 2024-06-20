@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="400.0" maxWidth="600.0" minHeight="700.0" minWidth="1200.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="clothify.sys.controller.BaseController">
+   <left>
+      <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="680.0" prefWidth="200.0" style="-fx-background-color: gray;" BorderPane.alignment="CENTER">
+         <children>
+            <JFXButton fx:id="homeButton" prefHeight="41.0" prefWidth="100.0" text="Home">
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </JFXButton>
+            <JFXButton fx:id="ordersButton" layoutX="10.0" layoutY="60.0" prefHeight="41.0" prefWidth="100.0" text="Orders" />
+            <JFXButton fx:id="productsButton" layoutX="10.0" layoutY="102.0" prefHeight="60.0" prefWidth="100.0" text="Products" />
+            <JFXButton fx:id="suppliersButton" layoutX="10.0" layoutY="144.0" prefHeight="41.0" prefWidth="100.0" text="Suppliers" />
+            <JFXButton fx:id="employeesButton" layoutX="10.0" layoutY="185.0" prefHeight="41.0" prefWidth="100.0" text="Employees" />
+            <JFXButton fx:id="usersButton" layoutX="10.0" layoutY="227.0" prefHeight="41.0" prefWidth="100.0" text="Users" />
+            <JFXButton fx:id="reportsButton" layoutX="10.0" layoutY="268.0" prefHeight="41.0" prefWidth="100.0" text="Reports" />
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <BorderPane fx:id="mainPane" prefHeight="700.0" prefWidth="1200.0" />
+   </center>
+</BorderPane>
