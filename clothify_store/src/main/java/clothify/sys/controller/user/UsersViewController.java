@@ -24,6 +24,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.regex.Pattern;
 
+import static org.hibernate.internal.util.collections.ArrayHelper.forEach;
+
 public class UsersViewController implements Initializable {
 
     public JFXTextField txtUserId;
@@ -57,6 +59,8 @@ public class UsersViewController implements Initializable {
     private void loadUserTable() {
         ObservableList<UserTableTM> userTableData = FXCollections.observableArrayList();
 
+        List<User> userList = loadUsers();
+
         userList.forEach(user -> {
             UserTableTM userTableTM = new UserTableTM(
                     user.getId(),
@@ -67,36 +71,17 @@ public class UsersViewController implements Initializable {
             );
 
             userTableData.add(userTableTM);
-
         });
 
         tblUser.setItems(userTableData);
-
     }
 
-    private void loadUsers() {
-        userList = new ArrayList<>();
-
-        try {
-            Connection connection = DBConnection.getInstance().getConnection();
-            ResultSet resultSet = connection.createStatement().executeQuery("SELECT * FROM User");
-            userList = new ArrayList<>();
-
-            while (resultSet.next()) {
-                User user = new User(
-                        resultSet.getString(1),
-                        resultSet.getString(2),
-                        resultSet.getString(3),
-                        resultSet.getBoolean(4),
-                        resultSet.getBoolean(5)
-                );
-                System.out.println(user);
-                userList.add(user);
-            }
-        } catch (SQLException | ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        }
+    private List<User> loadUsers() {
+        ArrayList<User> allUsers;
+        allUsers = UserController.getInstance().getAllUsers();
+        return allUsers;
     }
+
 
     public void btnAddUserOnAction(ActionEvent actionEvent) {
         String userId = txtUserId.getText().trim();

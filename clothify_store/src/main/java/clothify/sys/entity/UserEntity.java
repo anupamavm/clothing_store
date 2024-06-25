@@ -15,7 +15,6 @@ import lombok.*;
 @Entity
 public class UserEntity {
     @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
     private String id;
     private String email;
     private String name;
